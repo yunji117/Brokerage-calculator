@@ -15,6 +15,7 @@
 ```bash
 npm install
 npm run dev
+```
 
 ## 🛠️ 기술 스택
 - Next.js
