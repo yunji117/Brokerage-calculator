@@ -1,78 +1,106 @@
+/* 색상 변수 */
+:root {
+  --primary-color: #1abc9c;
+  --primary-dark: #16a085;
+  --primary-light: #48c9b0;
+  --bg-color: #ffffff;
+  --section-bg: #f8f9fa;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --border-color: #e9ecef;
+  --success-color: #1abc9c;
+  --danger-color: #e74c3c;
+  --warning-bg: #fef8e7;
+  --warning-border: #f9c74f;
+  --warning-text: #7d6608;
+}
+
 .container {
   max-width: 500px;
   margin: 0 auto;
-  padding: 20px;
-  font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-  color: #333;
+  padding: 24px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-color);
+  min-height: 100vh;
 }
 
 .title {
   text-align: center;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: 700;
-  margin-bottom: 30px;
-  color: #2c3e50;
+  margin-bottom: 32px;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
 }
 
 .section {
-  margin-bottom: 30px;
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  margin-bottom: 24px;
+  background: var(--section-bg);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
 }
 
 .sectionTitle {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
-  margin-bottom: 15px;
-  color: #2c3e50;
+  margin-bottom: 16px;
+  color: var(--text-primary);
 }
 
 .buttonGroup {
   display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
+  gap: 8px;
+  margin-bottom: 12px;
 }
 
 .typeButton {
   flex: 1;
   padding: 12px 0;
-  border: 2px solid #e9ecef;
+  border: 2px solid var(--border-color);
   background: white;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary);
 }
 
 .typeButton:hover {
-  border-color: #3498db;
+  border-color: var(--primary-color);
+  background: rgba(26, 188, 156, 0.05);
+  color: var(--primary-color);
 }
 
 .typeButton.active {
-  background: #3498db;
+  background: var(--primary-color);
   color: white;
-  border-color: #3498db;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.3);
 }
 
 .description {
   font-size: 13px;
-  color: #7f8c8d;
+  color: var(--text-light);
   text-align: center;
   margin: 0;
+  line-height: 1.4;
 }
 
 .inputGroup {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .inputGroup label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #2c3e50;
+  font-size: 14px;
+  color: var(--text-primary);
 }
 
 .inputWithUnit {
@@ -83,105 +111,142 @@
 
 .inputWithUnit input {
   flex: 1;
-  padding: 12px 15px;
-  border: 2px solid #e9ecef;
-  border-radius: 8px;
+  padding: 12px 14px;
+  border: 2px solid var(--border-color);
+  border-radius: 12px;
   font-size: 16px;
-  transition: border-color 0.2s ease;
+  transition: all 0.3s ease;
+  background: white;
+  color: var(--text-primary);
+}
+
+.inputWithUnit input::placeholder {
+  color: var(--text-light);
+}
+
+.inputWithUnit input:hover {
+  border-color: #ccc;
 }
 
 .inputWithUnit input:focus {
   outline: none;
-  border-color: #3498db;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(26, 188, 156, 0.1);
 }
 
 .unit {
   position: absolute;
-  right: 15px;
-  color: #7f8c8d;
+  right: 14px;
+  color: var(--text-light);
   font-size: 14px;
+  font-weight: 500;
 }
 
 .rateInfo {
   font-size: 12px;
-  color: #7f8c8d;
-  margin: 5px 0 0 0;
+  color: var(--text-light);
+  margin: 6px 0 0 0;
+  line-height: 1.4;
 }
 
 .calculateButton, .resetButton {
   width: 100%;
-  padding: 15px;
-  background: #2ecc71;
+  padding: 16px;
+  background: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s ease;
-  margin-top: 15px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(26, 188, 156, 0.15);
 }
 
 .calculateButton:hover, .resetButton:hover {
-  background: #27ae60;
+  background: var(--primary-dark);
+  box-shadow: 0 4px 12px rgba(26, 188, 156, 0.25);
+  transform: translateY(-2px);
+}
+
+.calculateButton:active, .resetButton:active {
+  transform: translateY(0);
 }
 
 /* 결과 섹션 */
 .resultSection {
-  background: #f8f9fa;
-  padding: 25px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: var(--section-bg);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  border: 1px solid #f0f0f0;
 }
 
 .resultTitle {
   text-align: center;
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #2c3e50;
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 28px;
+  color: var(--text-primary);
 }
 
 .resultItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
-  border-bottom: 1px solid #e9ecef;
-  font-size: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-color);
+  font-size: 15px;
+  color: var(--text-secondary);
+}
+
+.resultItem:last-of-type {
+  border-bottom: none;
 }
 
 .finalLabel {
   font-weight: 600;
-  color: #2c3e50;
+  color: var(--text-primary);
+  font-size: 16px;
 }
 
 .finalAmount {
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
-  color: #e74c3c;
+  color: var(--primary-color);
 }
 
 .note {
-  margin-top: 25px;
-  margin-bottom: 30px;
-  padding: 15px;
-  background: #fff3cd;
-  border-radius: 6px;
+  margin-top: 26px;
+  margin-bottom: 32px;
+  padding: 16px;
+  background: var(--warning-bg);
+  border-radius: 12px;
   font-size: 13px;
-  color: #856404;
-  border-left: 4px solid #ffc107;
+  color: var(--warning-text);
+  border-left: 4px solid var(--warning-border);
+  line-height: 1.6;
 }
 
 .note p {
-  margin: 5px 0;
-  line-height: 1.5;
+  margin: 6px 0;
+}
+
+.note p:first-child {
+  font-weight: 600;
+  margin-bottom: 8px;
 }
 
 /* 반응형 디자인 */
 @media (max-width: 480px) {
   .container {
-    padding: 15px;
+    padding: 16px;
+  }
+  
+  .title {
+    font-size: 24px;
+    margin-bottom: 24px;
   }
   
   .buttonGroup {
@@ -189,6 +254,11 @@
   }
   
   .section {
-    padding: 15px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  
+  .resultSection {
+    padding: 20px;
   }
 }
