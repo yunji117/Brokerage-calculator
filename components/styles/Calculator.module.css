@@ -119,6 +119,7 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.2s ease;
+  margin-top: 15px;
 }
 
 .calculateButton:hover, .resetButton:hover {
@@ -162,16 +163,19 @@
 }
 
 .note {
-  margin-top: 20px;
+  margin-top: 25px;
+  margin-bottom: 30px;
   padding: 15px;
   background: #fff3cd;
   border-radius: 6px;
   font-size: 13px;
   color: #856404;
+  border-left: 4px solid #ffc107;
 }
 
 .note p {
   margin: 5px 0;
+  line-height: 1.5;
 }
 
 /* 반응형 디자인 */

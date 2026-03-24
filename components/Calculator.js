@@ -256,8 +256,10 @@ export default function Calculator() {
           </div>
           
           <div className={styles.note}>
+            <p><strong>계산 결과 안내</strong></p>
             <p>※ 위 금액은 한쪽 당 납부하는 중개 수수료입니다.</p>
             <p>※ 실제 중개 수수료는 상한 요율 범위 내에서 협의로 결정됩니다.</p>
+            <p>※ 상한 요율은 부동산의 유형과 거래 방식에 따라 다릅니다.</p>
           </div>
           
           <button 
