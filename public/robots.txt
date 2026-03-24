@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# 특정 경로 차단
+Disallow: /_next/
+Disallow: /api/

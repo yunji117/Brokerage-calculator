@@ -26,6 +26,31 @@
   min-height: 100vh;
 }
 
+.topLinks,
+.footerLinks {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.topLinks {
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.topLinks a,
+.footerLinks a {
+  color: var(--primary-dark);
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.topLinks a:hover,
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
 .title {
   text-align: center;
   font-size: 28px;
@@ -238,6 +263,93 @@
   margin-bottom: 8px;
 }
 
+/* 정보 섹션 */
+.infoSection {
+  margin-top: 48px;
+  border-top: 2px solid var(--border-color);
+  padding-top: 48px;
+}
+
+.infoContainer {
+  max-width: 100%;
+}
+
+.infoArticle {
+  margin-bottom: 42px;
+}
+
+.infoTitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-primary);
+  padding-bottom: 12px;
+  border-bottom: 3px solid var(--primary-color);
+  display: inline-block;
+}
+
+.categoryBox {
+  background: var(--section-bg);
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--primary-color);
+}
+
+.categoryTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.categoryBox p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.legalBox {
+  background: linear-gradient(135deg, rgba(26, 188, 156, 0.05) 0%, rgba(22, 160, 133, 0.05) 100%);
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(26, 188, 156, 0.2);
+}
+
+.legalBox p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 16px;
+}
+
+.legalBox p:last-child {
+  margin-bottom: 0;
+}
+
+.legalBox strong {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+.infoArticle > p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.infoArticle > p:last-child {
+  margin-bottom: 0;
+}
+
+.footerLinks {
+  border-top: 1px solid var(--border-color);
+  padding-top: 18px;
+}
+
 /* 반응형 디자인 */
 @media (max-width: 480px) {
   .container {
@@ -260,5 +372,10 @@
   
   .resultSection {
     padding: 20px;
+  }
+
+  .topLinks,
+  .footerLinks {
+    gap: 12px;
   }
 }
