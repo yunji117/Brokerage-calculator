@@ -12,9 +12,9 @@
 - **반응형 디자인**: 모든 디바이스에 최적화된 UI/UX
 - **SEO 최적화**: Google 검색 엔진 최적화
 
-## 🌐 라이브 데모
+## 🌐 배포된 사이트 이동
 
-방문: [중개 수수료 계산기](https://yourdomain.com) (도메인 연결 후)
+방문: [중개 수수료 계산기](https://brokerage-calculator.getdaytimes.com) (도메인 연결 후)
 
 ## 🚀 시작하기
 
