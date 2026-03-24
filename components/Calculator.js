@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import styles from './styles/Calculator.module.css';
 
 export default function Calculator() {
@@ -9,7 +9,7 @@ export default function Calculator() {
   const [amount, setAmount] = useState('');
   const [deposit, setDeposit] = useState('');
   const [monthlyRent, setMonthlyRent] = useState('');
-  const [commissionRate, setCommissionRate] = useState(0.6);
+  const [customRate, setCustomRate] = useState(null);
   const [calculated, setCalculated] = useState(false);
   const [result, setResult] = useState({ total: 0, vat: 0, final: 0 });
 
@@ -27,10 +27,20 @@ export default function Calculator() {
     '주택 외': '오피스텔(주거용 제외), 상가, 토지 등'
   };
 
-  // 수수료율 업데이트
-  useEffect(() => {
-    setCommissionRate(defaultRates[propertyType][transactionType]);
-  }, [propertyType, transactionType]);
+  // 현재 적용할 수수료율 계산
+  const commissionRate = customRate !== null ? customRate : defaultRates[propertyType][transactionType];
+
+  // 부동산 유형 변경 핸들러
+  const handlePropertyTypeChange = (type) => {
+    setPropertyType(type);
+    setCustomRate(null);
+  };
+
+  // 거래 유형 변경 핸들러
+  const handleTransactionTypeChange = (type) => {
+    setTransactionType(type);
+    setCustomRate(null);
+  };
 
   // 거래 금액 계산 (월세의 경우)
   const calculateTransactionAmount = () => {
@@ -106,7 +116,7 @@ export default function Calculator() {
   const handleRateChange = (e) => {
     const value = parseFloat(e.target.value);
     if (!isNaN(value) && value >= 0) {
-      setCommissionRate(value);
+      setCustomRate(value);
     }
   };
 
@@ -117,7 +127,7 @@ export default function Calculator() {
     setAmount('');
     setDeposit('');
     setMonthlyRent('');
-    setCommissionRate(0.6);
+    setCustomRate(null);
     setCalculated(false);
     setResult({ total: 0, vat: 0, final: 0 });
   };
@@ -136,7 +146,7 @@ export default function Calculator() {
                 <button
                   key={type}
                   className={`${styles.typeButton} ${propertyType === type ? styles.active : ''}`}
-                  onClick={() => setPropertyType(type)}
+                  onClick={() => handlePropertyTypeChange(type)}
                 >
                   {type}
                 </button>
@@ -153,7 +163,7 @@ export default function Calculator() {
                 <button
                   key={type}
                   className={`${styles.typeButton} ${transactionType === type ? styles.active : ''}`}
-                  onClick={() => setTransactionType(type)}
+                  onClick={() => handleTransactionTypeChange(type)}
                 >
                   {type}
                 </button>
@@ -272,28 +282,4 @@ export default function Calculator() {
       )}
     </div>
   );
-
-  return (
-    <>
-      <StructuredData />
-      <div className={styles.container}>
-        {/* SEO를 위한 설명 섹션 추가 */}
-        <div className={styles.seoSection}>
-          <h1 className={styles.seoTitle}>중개 수수료 계산기</h1>
-          <p className={styles.seoDescription}>
-            한국 부동산 중개 수수료(복비)를 정확하게 계산하는 무료 온라인 도구입니다. 
-            주택, 오피스텔, 상가 등 부동산 유형별 법정 상한 요율을 자동 적용하며 
-            부가가치세 10%를 포함한 총 중개 수수료를 간편하게 계산할 수 있습니다.
-            공인중개사 수수료, 부동산 복비, 중개보수 계산에 활용하세요.
-          </p>
-        </div>
-
-        {/* 기존 계산기 UI */}
-        <div className={styles.calculatorWrapper}>
-          {/* ... 기존 계산기 코드 ... */}
-        </div>
-      </div>
-    </>
-  );
-
 }
