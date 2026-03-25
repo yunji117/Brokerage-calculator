@@ -40,7 +40,8 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <meta name="twitter:image" content="https://yourdomain.com/og-image.png" /> */}
         
         {/* Favicon */}
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="shortcut icon" href="/favicon.png" />
         {homepageUrl ? <link rel="canonical" href={homepageUrl} /> : null}
         
         {/* 추가 SEO 설정 */}
