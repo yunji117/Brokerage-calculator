@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import styles from './styles/Calculator.module.css';
 
+// 오피스텔과 주택 외 부동산의 거래 유형별 법정 상한 중개보수율(%)
 const OFFICE_TEL_MAX_RATE = {
   '매매 또는 교환': 0.5,
   '전세': 0.4,
@@ -14,6 +15,7 @@ const NON_HOUSING_MAX_RATE = {
   '월세': 0.9,
 };
 
+// 주택 거래 금액별 상한 요율과 한도액 반환 함수
 function getHousingBrokerageInfo(transactionAmount, transactionType) {
   if (transactionType === '매매 또는 교환') {
     if (transactionAmount < 50000000) return { maxRate: 0.6, capAmount: 250000 };
@@ -165,7 +167,7 @@ export default function Calculator() {
     setCalculated(false);
     setResult({ total: 0, vat: 0, final: 0, transactionAmount: 0, maxRate: 0 });
   };
-
+  
   return (
     <div className={styles.container}>
       <div className={styles.topLinks}>
