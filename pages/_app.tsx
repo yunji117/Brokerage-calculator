@@ -6,8 +6,12 @@ import { siteConfig } from '../lib/siteConfig';
 
 export default function App({ Component, pageProps }: AppProps) {
   const homepageUrl = siteConfig.siteUrl || '';
-  const previewImagePath = '/brokerage-calculator%20Thumbnailimg.png';
-  const faviconPath = '/favicon-v2.png';
+  const previewImagePath = '/og-image.png';
+  const faviconIcoPath = '/favicon.ico?v=2';
+  const favicon16Path = '/favicon-16x16.png?v=2';
+  const favicon32Path = '/favicon-32x32.png?v=2';
+  const appleTouchIconPath = '/apple-touch-icon.png?v=2';
+  const androidChrome192Path = '/android-chrome-192x192.png?v=2';
 
   return (
     <>
@@ -42,9 +46,11 @@ export default function App({ Component, pageProps }: AppProps) {
         {/* <meta name="twitter:image" content="https://yourdomain.com/og-image.png" /> */}
         
         {/* Favicon */}
-        <link rel="icon" type="image/png" href={faviconPath} />
-        <link rel="shortcut icon" href={faviconPath} />
-        <link rel="apple-touch-icon" href={faviconPath} />
+        <link rel="icon" type="image/png" sizes="32x32" href={favicon32Path} />
+        <link rel="icon" type="image/png" sizes="16x16" href={favicon16Path} />
+        <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIconPath} />
+        <link rel="icon" type="image/png" sizes="192x192" href={androidChrome192Path} />
+        <link rel="shortcut icon" href={faviconIcoPath} />
         {homepageUrl ? <link rel="canonical" href={homepageUrl} /> : null}
         
         {/* 추가 SEO 설정 */}
