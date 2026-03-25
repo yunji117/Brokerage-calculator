@@ -25,6 +25,13 @@ export default function App({ Component, pageProps }: AppProps) {
         {homepageUrl ? <meta property="og:url" content={homepageUrl} /> : null}
         {/* og:image는 배포 후 추가하세요 */}
         {/* <meta property="og:image" content="https://yourdomain.com/og-image.png" /> */}
+        <meta property="og:image" content={`${homepageUrl}/brokerage-calculator Thumbnailimg.png`} />
+        <meta property="og:image:alt" content="중개 수수료(복비) 계산기 미리보기 이미지" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+
+        <meta name="twitter:image" content={`${homepageUrl}/brokerage-calculator Thumbnailimg.png`} />
+
         
         {/* Twitter 카드 */}
         <meta name="twitter:card" content="summary_large_image" />
